@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内容渲染指令</title>
+    <!-- 导入 Vue 脚本文件 -->
+    <script src="vue.js"></script>
+</head>
+<body>
+    <!-- VM 要控制的区域 -->
+    <div id="app">
+        <!-- 插值表达式 -->
+      <h1>返回值:{{count}}</h1> 
+      <button v-on:click="addCount()">+1</button> 
+    </div>
+    <script>
+        Vue.config.productionTip = false;       //屏蔽生产提示
+        var vm = new Vue({                      //创建 VM 实例
+            el:"#app",                          //给VM实例指定控制区域
+            data:{                              //数据源
+               count:0                          //count指定值
+            },
+            methods: {                         //methods可包含多个方法
+                addCount(){                    //自增方法
+                    this.count += 1            //自增
+                },
+            },
+        })
+
+    </script>
+</body>
+</html>

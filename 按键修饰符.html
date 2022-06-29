@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按键修饰符</title>
+    <!-- 导入 Vue 脚本文件 -->
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input @keyup.enter="Submit">
+        <input @keyup.esc="clearInput">
+    </div>
+    
+    <script>
+        //屏蔽生产提示
+        Vue.config.productionTip = false;
+        //创建vm实例对象
+            const vm=new Vue({
+                //指定vm控制区域
+                el:'#app',
+                //数据源
+                data:{
+                    
+                },
+                //methods定义组件方法的配置项，可包含多个方法
+                methods: {
+                    Submit(){
+                        alert('按键检测:Enter')
+                    },
+                    clearInput(){
+                        alert('按键检测:ESC')
+                    }
+                },
+            })
+    </script>
+</body>
+</html>

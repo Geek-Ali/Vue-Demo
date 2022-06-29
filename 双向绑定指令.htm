@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双向绑定指令</title>
+    <!-- 导入 Vue 脚本文件 -->
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>用户名:{{userName}}</p>
+        <input type="text" v-model.number="userName">
+
+        <p>选中省份为：{{Address}}</p>
+        <select v-model="Address">
+            <option value="">--请选择--</option>
+            <option value="北京">北京</option>
+            <option value="杭州">杭州</option>
+            <option value="乌鲁木齐">乌鲁木齐</option>
+        </select>
+    </div>
+    <script>
+        //创建vm实例对象
+            const vm=new Vue({
+                //指定vm控制区域
+                el:'#app',
+                //数据源
+                data:{
+                    userName:'',
+                    Address:'',
+                },
+                //methods定义组件方法的配置项，可包含多个方法
+                methods: {
+                    
+                },
+            })
+       </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{a}}</h1>
+    </div>
+    <script>
+        Vue.config.productionTip=false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                a:'123'
+            }
+        })
+        let person={
+            a:'123',
+            b:'456'
+        }
+        Object.defineProperty(person,'c',{
+            value:'789',
+            enumerable:true,     //控制属性是否可以枚举，默认值是false[true则可遍历]
+            writable:true,       //控制属性是否可以修改，默认值是false
+            configurable:true    //控制属性是否可以删除，默认值是false
+        })
+        for(key in person){
+            console.log(person[key])
+        }
+        console.log(person)
+    </script>
+</body>
+</html>

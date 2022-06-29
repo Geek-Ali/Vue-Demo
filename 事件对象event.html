@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event事件对象</title>
+    <!-- 导入 Vue 脚本文件 -->
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>count 的值为：{{count}}</h3>
+        <button @click="addCount">{{btnCount}}</button>
+    </div>
+    <Script>
+        var vm =new Vue({
+            el:'#app',
+            data:{
+                count:0,
+                btnCount:'+1'
+            },
+            methods: {
+                addCount(e){
+                        const newBgColor=e.target.style.backgroundColor
+                        e.target.style.backgroundColor=newBgColor==='red'?'pink':'red'
+                        this.count +=1
+                    },
+            }
+        })
+    </Script>
+</body>
+</html>

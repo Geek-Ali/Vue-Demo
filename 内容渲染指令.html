@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内容渲染指令</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+    <div id="root">
+        <h2 v-text="information"></h2>
+        <h2>{{age}}</h2>
+        <h2 v-html="HtmlDisPlay"></h2>
+    </div>
+    <script>
+        //v-text   渲染文本内容
+        //{{}}     插值表达式（渲染文本内容）
+        //v-html   渲染网页元素及文本内容
+        var vm=new Vue({
+            el:"#root",
+            data:{
+                information:'Hello Vue !',
+                age:'100',
+                HtmlDisPlay:'<b>My Arali！</b>'
+            }
+        })
+
+    </script>
+</body>
+</html>

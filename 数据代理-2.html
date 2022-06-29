@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 id="disPlay_h"></h1>
+    </div>
+    <script>
+        number=100;
+        Vue.config.productionTip=false; //屏蔽生产提示
+        
+        let person={
+            a:'123',
+            b:'456',
+            c:'789'
+        };
+        Object.defineProperty(person,'d',{
+            get:function(){
+                console.log('Person中d',number,'被访问！')
+                return number
+            },
+            set(value){
+                console.log('Person中d','修改前：',number,'被修改！')
+                number=value
+                
+            }
+        })
+    </script>
+</body>
+</html>

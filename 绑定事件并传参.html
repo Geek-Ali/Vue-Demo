@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绑定事件并传参</title>
+     <!-- 导入 Vue 脚本文件 -->
+     <script src="vue.js"></script>
+</head>
+<body>
+    <!-- 指定vm控制区域  -->
+   <div id="app">
+    <!-- 插值 -->
+     <h3>{{count}}</h3>
+     <!--绑定事件v-on:click 传参addCount 传值：2-->
+     <button @click="addCount(2)">增加</button>
+   </div> 
+
+   <script>
+    //创建vm实例对象
+        const vm=new Vue({
+            //指定vm控制区域
+            el:'#app',
+            //数据源
+            data:{
+                count:0
+            },
+            //methods定义组件方法的配置项，可包含多个方法
+            methods: {
+                addCount(Stup){
+                    this.count += Stup
+                }
+            },
+        })
+   </script>
+</body>
+</html>

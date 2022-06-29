@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性绑定指令</title>
+    <!-- 导入 Vue 脚本文件-->
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <!-- vue 实例要控制的 DOM 区域 -->
+    <!-- v-bind 单向绑定指令 简写 : -->
+
+    <div id="app">
+        <input type="text" name="" id="" :placeholder="info">
+        <hr>
+        <img :src="imgdemo" :alt="info">
+    </div>
+    <script>
+        //创建VM实例对象
+        const vm=new Vue({
+            // 指定当前 VM 要控制的区域
+            el:'#app',
+            // 数据源
+            data:{
+                // 文本框占位符内容
+                info:'请输入内容:',
+                // 图片的 Src 地址
+                imgdemo:'./logo.png'
+            }
+        })
+    </script>
+</body>
+</html>
