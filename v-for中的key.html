@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 2. 声明要被 vue 所控制的 DOM 区域 -->
+    <div id='app'>
+        <!-- 添加用户区域 -->
+        <div>
+            <input type="text" v-model="userName">
+            <input type="button" @click="addData" value="添加">
+        </div>
+        <ul>
+            <!-- v-for 基于一个数组来循环渲染相似的UI结构-->
+            <!-- v-for="(user,i) in list" i-索引 user-当前循环项 list待循环的数组 -->
+            <!-- 用户列表区域 -->
+            <li v-for="(user,i) in list" :key="user.id">{{user.userName}}</li>
+        </ul>
+    </div>
+    <!-- 1. 导入 vue 的脚本文件 -->
+    <script src='vue.js'></script>
+    <!-- 3. 创建 vue 的实例对象 -->
+    <script>
+        const vm = new Vue({
+            // 3.1 使用 el 属性，指定 vue 要控制的区域
+            el: '#app',
+            // 3.2 数据源
+            data: {
+                //用户列表的数据
+                list:[
+                    //用户数据
+                    {id:1,userName:'Demo1'},
+                    {id:2,userName:'Demo2'}
+                ],
+                //输入用户名
+                userName:'',
+                //下一个可用的id值
+                nexId:3
+            },
+            methods:{
+                //点击了添加按钮
+                addData(){
+                    //unshift - 对象插入值
+                    //this -本身
+                    //nexId++ 自增 nexId=nexId+1
+                    this.list.unshift({id:this.nexId,userName:this.userName})
+                    this.userName=''
+                    this.nexId++
+                }
+            },
+        })
+    </script>
+</body>
+</html>

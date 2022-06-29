@@ -8,7 +8,14 @@
 </head>
 <body>
     <!-- 2. 声明要被 vue 所控制的 DOM 区域 -->
-    <div id='app'>{{message}}</div>
+    <!-- v-if 通过创建或移除DOM元素实现-切换开销较大-微量切换时推荐使用-->
+    <!-- v-show 通过创建或移除 <style>display:none;</style>属性-初始渲染开销较大-频繁切换时推荐 -->
+    <div id='app'>
+        <!-- Hit =! Hit 效果：Hit的值：True，返回值：False；Hit的值：False，返回值：True  -->
+        <button @click="Hit =! Hit">点击</button>
+        <p v-if="Hit">请求成功--被v-if 控制</p>
+        <p v-show="Hit">请求成功--被v-show 控制</p>
+    </div>
     <!-- 1. 导入 vue 的脚本文件 -->
     <script src='vue.js'></script>
     <!-- 3. 创建 vue 的实例对象 -->
@@ -18,7 +25,10 @@
             el: '#app',
             // 3.2 数据源
             data: {
-                message: 'Hello Vue !'
+                //Hit控制元素的显示和隐藏
+                //True-显示
+                //False-隐藏
+                Hit:false
             },
         })
     </script>
