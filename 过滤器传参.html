@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过滤器传参</title>
+</head>
+<body>
+    <!-- 2. 声明要被 vue 所控制的 DOM 区域 -->
+    <div id='app'>
+        <!-- info 通道符 全局过滤 -->
+        <!-- message 通道符 全局过滤demo1 再次全局过滤maxLength -->
+        <p :title="info | demo1">{{message | demo1 |maxLength}}</p>
+    </div>
+    <!-- 1. 导入 vue 的脚本文件 -->
+    <script src='vue.js'></script>
+    <!-- 3. 创建 vue 的实例对象 -->
+    <script>
+        //全局过滤器
+        //charAt() 按索引查找
+        //toUpperCase() 转大写
+        //slice() 按开始位置到尾提取 
+        Vue.filter('demo1',(str)=>{
+            return str.charAt(0).toUpperCase()+str.slice(1)
+        })
+        //控制文本长度
+        //带参数 len=10
+        //length 获取字符数
+        Vue.filter('maxLength',(str,len=10)=>{
+            if(str.length<=len) return str
+            return str.slice(0,len)+'···'
+        })
+    </script>
+    <script>
+        const vm = new Vue({
+            // 3.1 使用 el 属性，指定 vue 要控制的区域
+            el: '#app',
+            // 3.2 数据源
+            data: {
+                message: 'hello Vue !',
+                info:'title info'
+            },
+        })
+    </script>
+</body>
+</html>

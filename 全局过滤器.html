@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全局过滤器</title>
+</head>
+<body>
+    <!-- 2. 声明要被 vue 所控制的 DOM 区域 -->
+    <div id='app'>
+        <p v-bind:title="info | capitalize">{{messAge | capitalize}}</p>
+    </div>
+    <div id='app2'>
+        <p v-bind:title="aaa | capitalize">{{aaa | capitalize}}</p>
+    </div>
+    <!-- 1. 导入 vue 的脚本文件 -->
+    <script src='vue.js'></script>
+    <!-- 3. 创建 vue 的实例对象 -->
+    <script>
+        Vue.filter('capitalize', (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1) + '···'
+      })
+    </script>
+    <script>
+        const vm1 = new Vue({
+            // 3.1 使用 el 属性，指定 vue 要控制的区域
+            el: '#app',
+            // 3.2 数据源
+            data: {
+                info:'Title Info',
+                messAge:'hello Vue.js'
+            },
+        })
+    </script>
+    
+    <script>
+        const vm2 = new Vue({
+            // 3.1 使用 el 属性，指定 vue 要控制的区域
+            el: '#app2',
+            // 3.2 数据源
+            data: {
+                aaa:'Title Info',
+            },
+        })
+    </script>
+</body>
+</html>
